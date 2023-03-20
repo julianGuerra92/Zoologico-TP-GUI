@@ -29,3 +29,6 @@ public class Zoologico extends Application {
         launch();
     }
 }
+
+//TODO: Revisar si se requiere definir clases final
+//TODO: Revisar generación de javadoc
