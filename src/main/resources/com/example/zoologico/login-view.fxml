@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="scenePane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" spacing="50.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.LoginController">
+   <children>
+      <Label fx:id="title" text="Bienvenido al Zoológico ZOODI">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="133.0" prefWidth="1000.0" spacing="50.0">
+         <children>
+            <VBox alignment="BASELINE_RIGHT" prefHeight="100.0" prefWidth="215.0" spacing="30.0">
+               <children>
+                  <Label fx:id="subtitle" text="Correo Electrónico:">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="subtitle" text="Contraseña:">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="18.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="301.0" spacing="30.0">
+               <children>
+                  <TextField fx:id="fieldEmail" prefHeight="39.0" prefWidth="301.0" text="julian@google.com">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="fieldPassword" prefHeight="41.0" prefWidth="301.0" text="123456" />
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="613.0">
+         <children>
+            <Button fx:id="buttonLogIn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logIn" prefHeight="40.0" prefWidth="122.0" text="Ingresar" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets left="450.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

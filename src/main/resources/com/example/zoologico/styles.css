@@ -1,0 +1,45 @@
+.root {
+    -fx-background-color: #111111;
+    -fx-font-family: Verdana;
+}
+
+.menu-bar {
+    -fx-background-color: #8D99AE;
+    -fx-padding: 0px;
+}
+
+#title {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+}
+
+#subtitle {
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #38369A;
+    -fx-border-color: #38369A;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.button:hover{
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3;
+}
+
+.button:pressed{
+    -fx-background-color: #4A53FC;
+}
+
+.TableView{
+    -fx-background-color: #111111;
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.AnimalZooController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Menú">
+                    <items>
+                        <MenuItem fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Zoológico" />
+                        <MenuItem fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Adopción" />
+                        <MenuItem fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Ventas" />
+                        <MenuItem fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Clientes" />
+                        <MenuItem fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Empleados" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="closeSession" mnemonicParsing="false" onAction="#onChangeWindow" text="Cerrar Sesión" />
+                        <MenuItem mnemonicParsing="false" onAction="#exitAplication" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="About">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Registro de Animales">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Button" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+          <Tab text="Listado de Animales">
+               <content>
+                  <TableView prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="subtitle" text="Módulo Animales Zoológico">
+               <VBox.margin>
+                  <Insets right="30.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

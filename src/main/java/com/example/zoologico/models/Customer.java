@@ -1,16 +1,8 @@
 package com.example.zoologico.models;
 
-import java.time.LocalDate;
+import com.example.zoologico.enums.CustomerCategory;
 
-/**
- * enum para definir las categorias que deberán usarase en el momento de instancias un objeto
- * de la clase Plans.
- */
-enum CustomerCategory {
-    OCASIONAL,
-    FRECUENTE,
-    ABONADO
-}
+import java.time.LocalDate;
 
 /**
  * @author Julian A. Rodríguez G. - Oscar Albeiro Blandón

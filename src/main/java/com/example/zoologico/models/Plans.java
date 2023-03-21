@@ -1,15 +1,6 @@
 package com.example.zoologico.models;
 
-/**
- * enum para definir las categorias que deberán usarase en el momento de instancias un objeto
- * de la clase Plans.
- */
-enum PlanCategory {
-    GENERAL_NINIO_ADULTO,
-    GENERAL_TODO_INCLUIDO,
-    TOUR_GRANJA_TODO_INCLUIDO,
-    ABONO_MENSUAL
-}
+import com.example.zoologico.enums.PlanCategory;
 
 /**
  * @author Julian A. Rodríguez G. - Oscar Albeiro Blandón

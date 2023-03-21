@@ -1,4 +1,4 @@
-# Zoológico UdeA - Técnicas de Programación
+# Zoológico ZOODI - Técnicas de Programación
 
 ### Autores: Oscar Albeiro Blandón Agudelo - Julián Andrés Rodríguez Guerra.
 
@@ -12,5 +12,5 @@ Por favor tener en cuenta las siguientes consideraciones acerca del desarrollo d
    - 
 3. Las historias de usuario correspondiente al proyecto se encuentra en el siguiente link de Trello:
 
-```https://trello.com/b/cuEBbN0X/historias-de-usuario-zool%C3%B3gico```
+   ```https://trello.com/b/cuEBbN0X/historias-de-usuario-zool%C3%B3gico```
 

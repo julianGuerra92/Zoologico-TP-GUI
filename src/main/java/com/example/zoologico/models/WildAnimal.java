@@ -1,14 +1,16 @@
 package com.example.zoologico.models;
 
+import com.example.zoologico.interfaces.AnimalBehavior;
+
 import java.time.LocalDate;
 
 /**
  * @author Julian A. Rodríguez G. - Oscar Albeiro Blandón
  * @version 0.0.1
  * Esta clase representa al tipo de animales salvajes (leones, serpientes, jirafas, etc), quienes
- * heredan directamente de la clase animal.
+ * heredan de la clase Animal e implementan la interface AnimalBehavior.
  */
-public class WildAnimal extends Animal {
+public class WildAnimal extends Animal implements AnimalBehavior {
 
     private String dangerLevel, naturalHabitat, compatibilityLevel;
 
@@ -66,4 +68,20 @@ public class WildAnimal extends Animal {
                 ", compatibilityLevel='" + compatibilityLevel + '\'' +
                 '}';
     }
+
+    @Override
+    public String eat() {
+        return "El " + getSpecies() + " se encuentra devorando su presea!";
+    }
+
+    @Override
+    public String drinkingWater() {
+        return "Ahora el " + getSpecies() + " se encuentra bebiendo agua del estanque!";
+    }
+
+    @Override
+    public String sleep() {
+        return "Silecio. Animal salvaje durmiendo!";
+    }
+
 }

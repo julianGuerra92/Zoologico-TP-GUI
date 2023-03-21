@@ -65,18 +65,6 @@ public class Animal {
         this.age = age;
     }
 
-    public String eat () {
-        return "El animal se encuentra comiendo actualmente!";
-    }
-
-    public String drinkingWater(){
-        return "Ahora el animal se encuentra bebiendo agua!";
-    }
-
-    public String sleep(){
-        return "Silecio. Animal durmiendo!";
-    }
-
     @Override
     public String toString() {
         return "Animal{" +

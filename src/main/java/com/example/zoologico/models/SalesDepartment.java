@@ -1,6 +1,8 @@
 package com.example.zoologico.models;
 
 import com.example.zoologico.Zoologico;
+import com.example.zoologico.enums.CustomerCategory;
+import com.example.zoologico.enums.PlanCategory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

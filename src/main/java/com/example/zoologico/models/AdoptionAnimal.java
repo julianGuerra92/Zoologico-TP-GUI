@@ -1,14 +1,18 @@
 package com.example.zoologico.models;
 
+import com.example.zoologico.interfaces.AnimalBehavior;
+
 import java.time.LocalDate;
+import java.util.Locale;
 
 /**
  * @author Julian A. Rodríguez G. - Oscar Albeiro Blandón
  * @version 0.0.1
  * Esta clase representa al tipo de animal doméstico destinado para la operación de adopción
- * (perros, gatos, conejos, hamster, etc.), quienes heredan directamente de la clase animal.
+ * (perros, gatos, conejos, hamster, etc.), quienes heredan de la clase Animal e implementan
+ * la interface AnimalBehavior.
  */
-public class AdoptionAnimal extends Animal {
+public class AdoptionAnimal extends Animal implements AnimalBehavior {
 
     private String name;
     private boolean sterilized, available;
@@ -62,6 +66,21 @@ public class AdoptionAnimal extends Animal {
                 ", sterilized=" + sterilized +
                 ", available=" + available +
                 '}';
+    }
+
+    @Override
+    public String eat() {
+        return name + " está comiendo en su plato favorito!";
+    }
+
+    @Override
+    public String drinkingWater() {
+        return name + " bebe agua en su bebedero!";
+    }
+
+    @Override
+    public String sleep() {
+        return "Silecio. " + name + " duerme en su cama en este momento.";
     }
 
 }
