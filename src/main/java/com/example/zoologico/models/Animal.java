@@ -10,19 +10,19 @@ import java.time.temporal.ChronoUnit;
  * al zoológico. De esta se extenderá las demás clases de los tipos específicos de animales en el zoológico.
  */
 public class Animal {
-    private String id, scientificName, species;
+    private String id, scientificName, commonName;
     private LocalDate birthDate;
     private long age;
 
     public Animal() {
     }
 
-    public Animal(String id, String scientificName, String species, LocalDate birthDate) {
+    public Animal(String id, String scientificName, String commonName, LocalDate birthDate) {
         this.id = id;
         this.scientificName = scientificName;
-        this.species = species;
+        this.commonName = commonName;
         this.birthDate = birthDate;
-        this.age = ChronoUnit.YEARS.between(LocalDate.now(), birthDate);
+        this.age = ChronoUnit.YEARS.between(birthDate, LocalDate.now());
     }
 
     public String getId() {
@@ -41,12 +41,12 @@ public class Animal {
         this.scientificName = scientificName;
     }
 
-    public String getSpecies() {
-        return species;
+    public String getCommonName() {
+        return commonName;
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
+    public void setCommonName(String commonName) {
+        this.commonName = commonName;
     }
 
     public LocalDate getBirthDate() {
@@ -70,7 +70,7 @@ public class Animal {
         return "Animal{" +
                 "id='" + id + '\'' +
                 ", scientificName='" + scientificName + '\'' +
-                ", species='" + species + '\'' +
+                ", species='" + commonName + '\'' +
                 ", birthDate=" + birthDate +
                 ", age=" + age +
                 '}';

@@ -20,13 +20,13 @@ public class WildAnimal extends Animal implements AnimalBehavior {
     public WildAnimal(
             String id,
             String scientificName,
-            String species,
+            String commonName,
             LocalDate birthDate,
             String dangerLevel,
             String naturalHabitat,
             String compatibilityLevel
     ) {
-        super(id, scientificName, species, birthDate);
+        super(id, scientificName, commonName, birthDate);
         this.dangerLevel = dangerLevel;
         this.naturalHabitat = naturalHabitat;
         this.compatibilityLevel = compatibilityLevel;
@@ -71,12 +71,12 @@ public class WildAnimal extends Animal implements AnimalBehavior {
 
     @Override
     public String eat() {
-        return "El " + getSpecies() + " se encuentra devorando su presea!";
+        return "El " + getCommonName() + " se encuentra devorando su presea!";
     }
 
     @Override
     public String drinkingWater() {
-        return "Ahora el " + getSpecies() + " se encuentra bebiendo agua del estanque!";
+        return "Ahora el " + getCommonName() + " se encuentra bebiendo agua del estanque!";
     }
 
     @Override

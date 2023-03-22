@@ -1,6 +1,6 @@
 package com.example.zoologico;
 
-import com.example.zoologico.enums.JobTitle;
+import com.example.zoologico.data.SeedData;
 import com.example.zoologico.models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,18 +31,12 @@ public class Zoologico extends Application {
     }
 
     public static void main(String[] args) {
-        Employee administrator = new Employee(
-                "1094931275",
-                "Julián Rodríguez",
-                "julian@google.com",
-                "123456",
-                5500000,
-                JobTitle.ADMINISTRADOR
-        );
-        employeesList.add(administrator);
+        SeedData seedData = new SeedData();
         launch();
     }
 }
 
 //TODO: Revisar si se requiere definir clases final
 //TODO: Revisar generación de javadoc
+
+//TODO: Agregar la Clase Usuario que herede de empleado y tenga los tributos de correo y password

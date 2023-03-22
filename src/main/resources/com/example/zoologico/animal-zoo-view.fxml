@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -11,7 +13,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.AnimalZooController">
@@ -41,23 +45,130 @@
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Registro de Animales">
+            <Tab fx:id="tab1" text="Animales Salvajes">
                <content>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button" />
+                        <VBox alignment="CENTER" prefHeight="564.0" prefWidth="494.0">
+                           <children>
+                              <Label styleClass="secondaryTitle" text="Formulario de Ingreso y" />
+                              <Label styleClass="secondaryTitle" text="Edición de Registros">
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="335.0" prefWidth="494.0" spacing="30.0">
+                                 <children>
+                                    <VBox alignment="TOP_RIGHT" prefHeight="303.0" prefWidth="207.0" spacing="30.0">
+                                       <children>
+                                          <Label styleClass="secondarySubtitle" text="ID del Animal:" />
+                                          <Label styleClass="secondarySubtitle" text="Nombre Científico:" />
+                                          <Label styleClass="secondarySubtitle" text="Nombre Común:" />
+                                          <Label styleClass="secondarySubtitle" text="Fecha de Nacimiento:" />
+                                          <Label styleClass="secondarySubtitle" text="Nivel de Peligrosidad:" />
+                                          <Label styleClass="secondarySubtitle" text="Habitat Natural:" />
+                                          <Label styleClass="secondarySubtitle" text="Nivel de Compatibilidad:" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="367.0" prefWidth="231.0" spacing="25.0">
+                                       <children>
+                                          <TextField fx:id="fieldWID" />
+                                          <TextField fx:id="fieldWScientificName" />
+                                          <TextField fx:id="fieldWCommonName" />
+                                          <DatePicker fx:id="datePickerW" prefHeight="25.0" prefWidth="387.0" />
+                                          <ChoiceBox fx:id="fieldWDangerLevel" prefHeight="25.0" prefWidth="394.0" />
+                                          <TextField fx:id="fieldWNaturalHabitat" />
+                                          <ChoiceBox fx:id="fieldWCompatibility" prefHeight="25.0" prefWidth="394.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#saveWildAnimal" text="Guardar">
+                                 <VBox.margin>
+                                    <Insets left="380.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <TableView fx:id="wildAnimalTable" prefHeight="544.0" prefWidth="486.0">
+                          <columns>
+                            <TableColumn fx:id="colIdW" prefWidth="50.0" text="ID" />
+                            <TableColumn fx:id="colNameW" prefWidth="130.0" text="Nombre Común" />
+                              <TableColumn fx:id="colAgeW" prefWidth="70.0" text="Edad" />
+                              <TableColumn fx:id="colDangerLevelW" prefWidth="115.0" text="Peligrosidad" />
+                              <TableColumn fx:id="colCompatibilityW" prefWidth="115.0" text="Compatibilidad" />
+                          </columns>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TableView>
                      </children>
-                  </VBox>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
                </content>
             </Tab>
-          <Tab text="Listado de Animales">
+            <Tab fx:id="tab2" text="Animales Domésticos">
                <content>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="564.0" prefWidth="494.0">
+                           <children>
+                              <Label styleClass="secondaryTitle" text="Formulario de Ingreso y" />
+                              <Label styleClass="secondaryTitle" text="Edición de Registros">
+                                 <VBox.margin>
+                                    <Insets bottom="50.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="303.0" prefWidth="494.0" spacing="30.0">
+                                 <children>
+                                    <VBox alignment="TOP_RIGHT" prefHeight="303.0" prefWidth="207.0" spacing="30.0">
+                                       <children>
+                                          <Label styleClass="secondarySubtitle" text="ID del Animal:" />
+                                          <Label styleClass="secondarySubtitle" text="Nombre Científico:" />
+                                          <Label styleClass="secondarySubtitle" text="Nombre Común:" />
+                                          <Label styleClass="secondarySubtitle" text="Fecha de Nacimiento:" />
+                                          <Label styleClass="secondarySubtitle" text="Uso Doméstico" />
+                                          <Label styleClass="secondarySubtitle" text="Compatible con niñós" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="367.0" prefWidth="231.0" spacing="25.0">
+                                       <children>
+                                          <TextField fx:id="fieldDID" />
+                                          <TextField fx:id="fieldDScientificName" />
+                                          <TextField fx:id="fieldDCommonName" />
+                                          <DatePicker fx:id="datePickerD" prefHeight="25.0" prefWidth="387.0" />
+                                          <TextField fx:id="fieldDomesticUse" />
+                                          <ChoiceBox fx:id="fieldDCompatibility" prefHeight="25.0" prefWidth="394.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" text="Guardar">
+                                 <VBox.margin>
+                                    <Insets left="380.0" top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <TableView fx:id="domesticAnimalTable" prefHeight="544.0" prefWidth="482.0">
+                           <columns>
+                              <TableColumn fx:id="colIdD" prefWidth="50.0" text="ID" />
+                              <TableColumn fx:id="colNameD" prefWidth="130.0" text="Nombre Común" />
+                              <TableColumn fx:id="colAgeD" prefWidth="70.0" text="Edad" />
+                              <TableColumn fx:id="colUseDomesticD" prefWidth="200.0" text="Uso Doméstico" />
+                              <TableColumn fx:id="colCompatibilityD" prefWidth="100.0" text="Compatible" />
+                           </columns>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
                </content>
             </Tab>
         </tabs>
@@ -66,7 +177,7 @@
    <bottom>
       <VBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="subtitle" text="Módulo Animales Zoológico">
+            <Label styleClass="subtitle" text="Módulo Animales Zoológico">
                <VBox.margin>
                   <Insets right="30.0" />
                </VBox.margin>

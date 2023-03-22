@@ -2,7 +2,7 @@
 
 ### Autores: Oscar Albeiro Blandón Agudelo - Julián Andrés Rodríguez Guerra.
 
-Proyecto para la gestión del Zoológico UdeA creado como práctica de la asignatura Técnicas de programación.
+Proyecto para la gestión del Zoológico ZOODI creado como práctica de la asignatura Técnicas de programación.
 Por favor tener en cuenta las siguientes consideraciones acerca del desarrollo del proyecto:
 
 1. Para su construcción se utilizó Java con Maven y Javafx para la creación de la interfaz gráfica de usuario.

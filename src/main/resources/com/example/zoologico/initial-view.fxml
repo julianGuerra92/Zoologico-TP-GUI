@@ -39,13 +39,13 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="625.0" prefWidth="509.0">
                     <children>
-                        <Label fx:id="title" text="Panel Principal" />
-                        <Label fx:id="title" text=" de Administración" />
+                        <Label styleClass="title" text="Panel Principal" />
+                        <Label styleClass="title" text=" de Administración" />
                     </children>
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="625.0" prefWidth="481.0" spacing="30.0">
                     <children>
-                        <Label fx:id="subtitle" alignment="CENTER" prefHeight="17.0" prefWidth="346.0" text="Menú de Opciones" textAlignment="CENTER" />
+                        <Label styleClass="subtitle" alignment="CENTER" prefHeight="17.0" prefWidth="346.0" text="Menú de Opciones" textAlignment="CENTER" />
                         <Button fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Zoológico" />
                         <Button fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Adopción" />
                         <Button fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo de Ventas" />

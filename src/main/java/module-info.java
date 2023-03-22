@@ -7,4 +7,5 @@ module com.example.zoologico {
     exports com.example.zoologico;
     exports com.example.zoologico.controllers;
     opens com.example.zoologico.controllers to javafx.fxml;
+    opens com.example.zoologico.models to javafx.base;
 }

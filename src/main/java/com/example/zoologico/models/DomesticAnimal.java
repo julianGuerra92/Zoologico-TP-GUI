@@ -21,12 +21,12 @@ public class DomesticAnimal extends Animal implements AnimalBehavior {
     public DomesticAnimal(
             String id,
             String scientificName,
-            String species,
+            String commonName,
             LocalDate birthDate,
             String domesticUso,
             boolean compatibilityWithChildren
     ) {
-        super(id, scientificName, species, birthDate);
+        super(id, scientificName, commonName, birthDate);
         this.domesticUso = domesticUso;
         this.compatibilityWithChildren = compatibilityWithChildren;
     }
@@ -57,16 +57,16 @@ public class DomesticAnimal extends Animal implements AnimalBehavior {
 
     @Override
     public String eat() {
-        return "El " + getSpecies() + " se encuentra comiendo en su comedero!";
+        return "El " + getCommonName() + " se encuentra comiendo en su comedero!";
     }
 
     @Override
     public String drinkingWater() {
-        return "Ahora el " + getSpecies() + " toma agua en su bebedero!";
+        return "Ahora el " + getCommonName() + " toma agua en su bebedero!";
     }
 
     @Override
     public String sleep() {
-        return "El " + getSpecies() + " duerme en su corral!";
+        return "El " + getCommonName() + " duerme en su corral!";
     }
 }

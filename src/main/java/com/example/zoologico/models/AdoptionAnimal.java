@@ -23,13 +23,13 @@ public class AdoptionAnimal extends Animal implements AnimalBehavior {
     public AdoptionAnimal(
             String id,
             String scientificName,
-            String species,
+            String commonName,
             LocalDate birthDate,
             String name,
             boolean sterilized,
             boolean available
     ) {
-        super(id, scientificName, species, birthDate);
+        super(id, scientificName, commonName, birthDate);
         this.name = name;
         this.sterilized = sterilized;
         this.available = available;
