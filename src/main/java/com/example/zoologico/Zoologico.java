@@ -1,7 +1,9 @@
 package com.example.zoologico;
 
+import com.example.zoologico.controllers.PdfController;
 import com.example.zoologico.data.SeedData;
 import com.example.zoologico.models.*;
+import com.itextpdf.text.DocumentException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,13 +32,13 @@ public class Zoologico extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DocumentException, IOException {
         SeedData seedData = new SeedData();
+        PdfController.generatePdf();
         launch();
     }
 }
 
-//TODO: Revisar si se requiere definir clases final
 //TODO: Revisar generación de javadoc
-
 //TODO: Agregar la Clase Usuario que herede de empleado y tenga los tributos de correo y password
+//TODO: Integrar adecuadamente la funcionalidad para la impresión del documento de ventas.

@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="068c67f3-af86-4753-8f52-e5e14dd512ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/data/SeedData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/controllers/PdfController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/controllers/PdfFooter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/images/portada.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/Zoologico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/Zoologico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/controllers/AnimalZooController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/controllers/AnimalZooController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/AdoptionAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/AdoptionAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/DomesticAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/DomesticAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/WildAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/zoologico/models/WildAnimal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/animal-zoo-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/animal-zoo-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/initial-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/initial-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/zoologico/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Julián Rodríguez/Documents/Oracle/Reto 2/Conversor-Oracle",
+    "last_opened_file_path": "C:/Users/Julián Rodríguez/Documents/Documentos_Universidad/01_Tecnicas_Programacion/Java_PDF_ZooTecProgLab",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,6 +74,7 @@
       <recent name="C:\Users\Julián Rodríguez\Dropbox\Documentos Universidad\01-Técnicas de Programación\ejercicios_clase\zoologico\src\main\java\com\example\zoologico\models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Julián Rodríguez\Dropbox\Documentos Universidad\01-Técnicas de Programación\ejercicios_clase\zoologico\src\main\resources\com\example\zoologico\images" />
       <recent name="C:\Users\Julián Rodríguez\Dropbox\Documentos Universidad\01-Técnicas de Programación\ejercicios_clase\zoologico\src\main\resources\com\example\zoologico" />
       <recent name="C:\Users\Julián Rodríguez\Dropbox\Documentos Universidad\01-Técnicas de Programación\ejercicios_clase\zoologico\src\main\resources" />
       <recent name="C:\Users\Julián Rodríguez\Dropbox\Documentos Universidad\01-Técnicas de Programación\ejercicios_clase\zoologico\src\main\java\com\example\zoologico\view" />
@@ -108,7 +102,9 @@
       <workItem from="1679007523421" duration="2364000" />
       <workItem from="1679319711071" duration="20129000" />
       <workItem from="1679355736792" duration="15666000" />
-      <workItem from="1679403482449" duration="30538000" />
+      <workItem from="1679403482449" duration="30783000" />
+      <workItem from="1679612717826" duration="759000" />
+      <workItem from="1679614181611" duration="5174000" />
     </task>
     <servers />
   </component>

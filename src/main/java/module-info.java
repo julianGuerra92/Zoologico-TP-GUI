@@ -1,6 +1,7 @@
 module com.example.zoologico {
     requires javafx.controls;
     requires javafx.fxml;
+    requires itextpdf;
 
 
     opens com.example.zoologico to javafx.fxml;
