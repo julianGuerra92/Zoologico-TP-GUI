@@ -76,13 +76,13 @@ public class PdfController {
         table.setWidthPercentage(100.0F);
         table.setSpacingAfter(10.0F);
         table.setSpacingBefore(10.0F);
-        PdfPCell cell1 = new PdfPCell(new PdfPCell(new Paragraph("Plan")));
-        PdfPCell cell2 = new PdfPCell(new PdfPCell(new Paragraph("Valor")));
-        PdfPCell cell3 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad")));
-        PdfPCell cell4 = new PdfPCell(new PdfPCell(new Paragraph("Valor Total")));
-        PdfPCell cell5 = new PdfPCell(new PdfPCell(new Paragraph("Porcentaje Descuento")));
-        PdfPCell cell6 = new PdfPCell(new PdfPCell(new Paragraph("Total Descuento")));
-        PdfPCell cell7 = new PdfPCell(new PdfPCell(new Paragraph("Total")));
+        PdfPCell cell1 = new PdfPCell(new PdfPCell(new Paragraph("Plan", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell2 = new PdfPCell(new PdfPCell(new Paragraph("Valor", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell3 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell4 = new PdfPCell(new PdfPCell(new Paragraph("Valor Total", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell5 = new PdfPCell(new PdfPCell(new Paragraph("Porcentaje Descuento", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell6 = new PdfPCell(new PdfPCell(new Paragraph("Total Descuento", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cell7 = new PdfPCell(new PdfPCell(new Paragraph("Total", FontFactory.getFont("arial", 12, Font.BOLD))));
         table.addCell(cell1);
         table.addCell(cell2);
         table.addCell(cell3);
@@ -111,22 +111,80 @@ public class PdfController {
         document.add(title3);
 
         //Tabla para totales de las ventas
+        document.add(new Paragraph("En la siguiente tabla se muestra de forma mas detallada los totales de las ventas",
+                FontFactory.getFont("arial", 12, Font.NORMAL)));
+
         PdfPTable tableT = new PdfPTable(2);
-        table.setWidthPercentage(100.0F);
-        table.setSpacingAfter(10.0F);
-        table.setSpacingBefore(10.0F);
-        PdfPCell cellT1 = new PdfPCell(new PdfPCell(new Paragraph("Plan")));
-        PdfPCell cellT2 = new PdfPCell(new PdfPCell(new Paragraph("Total")));
-        table.addCell(cellT1);
-        table.addCell(cellT2);
+        tableT.setWidthPercentage(100.0f);
+        tableT.setSpacingAfter(10.0f);
+        tableT.setSpacingBefore(10.0f);
+        PdfPCell cellT1 = new PdfPCell(new PdfPCell(new Paragraph("Plan", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cellT2 = new PdfPCell(new PdfPCell(new Paragraph("Total", FontFactory.getFont("arial", 12, Font.BOLD))));
+        tableT.addCell(cellT1);
+        tableT.addCell(cellT2);
         List<String[]> totales = obtenerTotales();
-        for (String[] total : totales) {
+        Iterator i = totales.iterator();
+
+        while (i.hasNext()){
+            String[] total = (String[]) i.next();
             tableT.addCell(total[0]);
             tableT.addCell(total[1]);
         }
         document.add(tableT);
-        document.close();
 
+        //Tabla de adopción de mascotas
+        document.add(new Paragraph("Dentro de las actividades adicionales que se realizan en el zoológico está el proceso de adopción" +
+                " y actualmente contamos con la siguiente cifra", FontFactory.getFont("arial", 12, Font.NORMAL)));
+
+        PdfPTable tableDispoMas = new PdfPTable(3);
+        tableDispoMas.setWidthPercentage(100.0f);
+        tableDispoMas.setSpacingAfter(10.0f);
+        tableDispoMas.setSpacingBefore(10.0f);
+        PdfPCell cellDispoMas1 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad de animales en el refugio", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cellDispoMas2 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad de animales disponibles", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cellDispoMas3 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad de animales entregados en adopción", FontFactory.getFont("arial", 12, Font.BOLD))));
+        tableDispoMas.addCell(cellDispoMas1);
+        tableDispoMas.addCell(cellDispoMas2);
+        tableDispoMas.addCell(cellDispoMas3);
+        List<String[]> dattaAnimal = obtenerDatosAnimAdop();
+        Iterator iAnimalDispoAdop = dattaAnimal.iterator();
+
+        while (iAnimalDispoAdop.hasNext()){
+            String[] dato = (String[])iAnimalDispoAdop.next();
+            tableDispoMas.addCell(dato[0]);
+            tableDispoMas.addCell(dato[1]);
+            tableDispoMas.addCell(dato[2]);
+        }
+        document.add(tableDispoMas);
+
+        //tabla especifica de mascotas en adopción
+        document.add(new Paragraph("En la siguiente tabla se encuentra información mas detallada de los animales" +
+                "que se encuentran en adopción", FontFactory.getFont("arial", 12, Font.NORMAL)));
+
+        PdfPTable tableMascotas = new PdfPTable(3);
+        tableMascotas.setWidthPercentage(100.0f);
+        tableMascotas.setSpacingAfter(10.0f);
+        tableMascotas.setSpacingBefore(10.0f);
+        PdfPCell cellMascota1 = new PdfPCell(new PdfPCell(new Paragraph("Animal", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cellMascota2 = new PdfPCell(new PdfPCell(new Paragraph("Uso", FontFactory.getFont("arial", 12, Font.BOLD))));
+        PdfPCell cellMascota3 = new PdfPCell(new PdfPCell(new Paragraph("Disponibilidad", FontFactory.getFont("arial", 12, Font.BOLD))));
+        tableMascotas.addCell(cellMascota1);
+        tableMascotas.addCell(cellMascota2);
+        tableMascotas.addCell(cellMascota3);
+        List<String[]> datoAnimalAdop = obtenerInfoAnimalesAdop();
+        Iterator iAnimalAdop = datoAnimalAdop.iterator();
+
+        while (iAnimalAdop.hasNext()){
+            String[] animalAdop = (String[]) iAnimalAdop.next();
+            tableMascotas.addCell(animalAdop[0]);
+            tableMascotas.addCell(animalAdop[1]);
+            tableMascotas.addCell(animalAdop[2]);
+        }
+        document.add(tableMascotas);
+
+
+
+        document.close();
     }
 
     public static List<String[]> obtenerPlanes() {
@@ -150,6 +208,21 @@ public class PdfController {
         totales.add(new String[]{"compañero Ideal", "30600"});
         totales.add(new String[]{"TOTAL:", "180473"});
         return totales;
+    }
+
+    public static List<String[]> obtenerDatosAnimAdop(){
+        List<String[]> dattaAnimal = new ArrayList<>();
+        dattaAnimal.add(new String[]{"175", "62", "35"});
+        return dattaAnimal;
+    }
+
+    public static List<String[]> obtenerInfoAnimalesAdop(){
+        List<String[]> infoAnimalAdop = new ArrayList<>();
+        infoAnimalAdop.add(new String[]{"Perro", "Compañía", "12"});
+        infoAnimalAdop.add(new String[]{"Gato", "Compañía", "5"});
+        infoAnimalAdop.add(new String[]{"Cerdo", "Carne, cría", "23"});
+        infoAnimalAdop.add(new String[]{"Vaca", "Leche, carne", "4"});
+        return infoAnimalAdop;
     }
 
 }
