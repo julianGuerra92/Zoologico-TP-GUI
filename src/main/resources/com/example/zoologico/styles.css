@@ -34,6 +34,15 @@
     -fx-font-weight: bold;
 }
 
+.boxLabel {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+    -fx-border-color: #38369A;
+    -fx-border-width: 2px;
+    -fx-alignment: center;
+    -fx-font-size: 20;
+}
+
 .button {
     -fx-background-color: #38369A;
     -fx-border-color: #38369A;
@@ -53,6 +62,6 @@
     -fx-background-color: #4A53FC;
 }
 
-.TableView {
-    -fx-background-color: #111111;
+.choice-box {
+    -fx-alignment: center;
 }

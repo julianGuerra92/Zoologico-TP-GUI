@@ -42,7 +42,7 @@ public class AnimalZooController implements Initializable {
     @FXML
     private TextField fieldWID, fieldWScientificName, fieldWCommonName, fieldWNaturalHabitat;
     @FXML
-    private TextField fieldDID, fieldDScientificName, fieldDCommonName, fieldDNaturalHabitat, fieldDomesticUse;
+    private TextField fieldDID, fieldDScientificName, fieldDCommonName, fieldDomesticUse;
     @FXML
     private DatePicker datePickerW, datePickerD;
     @FXML
@@ -50,6 +50,7 @@ public class AnimalZooController implements Initializable {
     private ObservableList<WildAnimal> wildAnimals;
     private ObservableList<DomesticAnimal> domesticAnimals;
     private String[] levelChoice = {"1", "2", "3", "4", "5"};
+    private Boolean[] compatibilityChoice = {true, false};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -65,7 +66,7 @@ public class AnimalZooController implements Initializable {
         colCompatibilityD.setCellValueFactory(new PropertyValueFactory<DomesticAnimal, Boolean>("compatibilityWithChildren"));
         fieldWDangerLevel.getItems().addAll(levelChoice);
         fieldWCompatibility.getItems().addAll(levelChoice);
-        fieldDCompatibility.getItems().addAll(levelChoice);
+        fieldDCompatibility.getItems().addAll(compatibilityChoice);
         setupTable();
     }
 
@@ -115,6 +116,21 @@ public class AnimalZooController implements Initializable {
         wildAnimals.add(animal);
         cleanFields();
         wildAnimalTable.setItems(wildAnimals);
+    }
+
+    public void saveDomesticAnimal() {
+        DomesticAnimal animal = new DomesticAnimal(
+                fieldDID.getText(),
+                fieldDScientificName.getText(),
+                fieldDCommonName.getText(),
+                datePickerD.getValue(),
+                fieldDomesticUse.getText(),
+                (Boolean) fieldDCompatibility.getValue()
+        );
+        inventoryDomesticAnimal.add(animal);
+        domesticAnimals = domesticAnimalTable.getItems();
+        domesticAnimals.add(animal);
+        domesticAnimalTable.setItems(domesticAnimals);
     }
 
     public void cleanFields() {

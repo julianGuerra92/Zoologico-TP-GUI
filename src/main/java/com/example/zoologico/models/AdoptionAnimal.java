@@ -15,7 +15,7 @@ import java.util.Locale;
 public class AdoptionAnimal extends Animal implements AnimalBehavior {
 
     private String name;
-    private boolean sterilized, available;
+    private boolean sterilized, available, adopted;
 
     public AdoptionAnimal() {
     }
@@ -33,6 +33,7 @@ public class AdoptionAnimal extends Animal implements AnimalBehavior {
         this.name = name;
         this.sterilized = sterilized;
         this.available = available;
+        this.adopted = false;
     }
 
     public String getName() {
@@ -57,6 +58,14 @@ public class AdoptionAnimal extends Animal implements AnimalBehavior {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public boolean isAdopted() {
+        return adopted;
+    }
+
+    public void setAdopted(boolean adopted) {
+        this.adopted = adopted;
     }
 
     @Override

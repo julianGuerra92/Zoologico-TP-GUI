@@ -1,6 +1,7 @@
 package com.example.zoologico.data;
 
 import com.example.zoologico.enums.JobTitle;
+import com.example.zoologico.models.AdoptionAnimal;
 import com.example.zoologico.models.DomesticAnimal;
 import com.example.zoologico.models.Employee;
 import com.example.zoologico.models.WildAnimal;
@@ -15,6 +16,7 @@ public class SeedData {
         addUsersData();
         addWildAnimalData();
         addDomesticAnimal();
+        addAdoptionAnimal();
     }
 
     public void addUsersData(){
@@ -42,6 +44,15 @@ public class SeedData {
         inventoryDomesticAnimal.add(domesticAnimal1);
         inventoryDomesticAnimal.add(domesticAnimal2);
         inventoryDomesticAnimal.add(domesticAnimal3);
+    }
+
+    public void addAdoptionAnimal(){
+        AdoptionAnimal adoptionAnimal1 = new AdoptionAnimal("1", "canis familiaris", "perro",  LocalDate.of(2015, 3, 21), "coco", true, true);
+        AdoptionAnimal adoptionAnimal2 = new AdoptionAnimal("2", "canis familiaris", "perro",  LocalDate.of(2014, 3, 21), "max", true, false);
+        AdoptionAnimal adoptionAnimal3 = new AdoptionAnimal("3", "canis familiaris", "gato",  LocalDate.of(2022, 3, 21), "niña", false, false);
+        inventoryAdoptionAnimal.add(adoptionAnimal1);
+        inventoryAdoptionAnimal.add(adoptionAnimal2);
+        inventoryAdoptionAnimal.add(adoptionAnimal3);
     }
 
 }
