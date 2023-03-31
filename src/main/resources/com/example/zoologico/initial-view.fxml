@@ -45,12 +45,13 @@
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="625.0" prefWidth="481.0" spacing="30.0">
                     <children>
-                        <Label styleClass="subtitle" alignment="CENTER" prefHeight="17.0" prefWidth="346.0" text="Menú de Opciones" textAlignment="CENTER" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="346.0" styleClass="subtitle" text="Menú de Opciones" textAlignment="CENTER" />
                         <Button fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Zoológico" />
                         <Button fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Adopción" />
                         <Button fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo de Ventas" />
                         <Button fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Registro de Clientes" />
                         <Button fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Registro de Empleados" />
+                  <Button fx:id="printReport" mnemonicParsing="false" onAction="#printReport" prefHeight="50.0" prefWidth="300.0" text="Imprimir Informe General" />
                     </children>
                 </VBox>
             </children>

@@ -34,7 +34,6 @@ public class Zoologico extends Application {
 
     public static void main(String[] args) throws DocumentException, IOException {
         SeedData seedData = new SeedData();
-        PdfController.generatePdf();
         launch();
     }
 }

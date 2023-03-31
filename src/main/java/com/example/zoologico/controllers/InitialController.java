@@ -1,5 +1,6 @@
 package com.example.zoologico.controllers;
 
+import com.itextpdf.text.DocumentException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,5 +40,9 @@ public class InitialController {
     public void exitAplication(ActionEvent actionEvent) {
         Stage stage = (Stage) scenePane.getScene().getWindow();
         stage.close();
+    }
+
+    public void printReport(ActionEvent actionEvent) throws DocumentException, IOException {
+        PdfController.generatePdf();
     }
 }
