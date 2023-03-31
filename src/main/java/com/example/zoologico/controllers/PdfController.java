@@ -1,5 +1,7 @@
 package com.example.zoologico.controllers;
 
+import com.example.zoologico.Zoologico;
+import com.example.zoologico.models.AdoptionAnimal;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import java.io.*;
@@ -10,6 +12,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+
 public class PdfController {
 
     public static void generatePdf() throws IOException, DocumentException {
@@ -131,31 +134,23 @@ public class PdfController {
         document.add(tableDispoMas);
 
         //tabla especifica de mascotas en adopción
-        document.add(new Paragraph("\n"));
-        document.add(new Paragraph("\n"));
+        document.add(new Paragraph("\n\n"));
         document.add(new Paragraph("En la siguiente tabla se encuentra información mas detallada de los animales" +
-                "que se encuentran en adopción", FontFactory.getFont("arial", 12, Font.NORMAL)));
+                " que se encuentran en adopción", FontFactory.getFont("arial", 12, Font.NORMAL)));
+        document.add(new Paragraph("\n\n"));
 
-        PdfPTable tableMascotas = new PdfPTable(3);
-        tableMascotas.setWidthPercentage(100.0f);
-        tableMascotas.setSpacingAfter(10.0f);
-        tableMascotas.setSpacingBefore(10.0f);
-        PdfPCell cellMascota1 = new PdfPCell(new PdfPCell(new Paragraph("Animal", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cellMascota2 = new PdfPCell(new PdfPCell(new Paragraph("Uso", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cellMascota3 = new PdfPCell(new PdfPCell(new Paragraph("Disponibilidad", FontFactory.getFont("arial", 12, Font.BOLD))));
-        tableMascotas.addCell(cellMascota1);
-        tableMascotas.addCell(cellMascota2);
-        tableMascotas.addCell(cellMascota3);
-        List<String[]> datoAnimalAdop = obtenerInfoAnimalesAdop();
-        Iterator iAnimalAdop = datoAnimalAdop.iterator();
-
-        while (iAnimalAdop.hasNext()){
-            String[] animalAdop = (String[]) iAnimalAdop.next();
-            tableMascotas.addCell(animalAdop[0]);
-            tableMascotas.addCell(animalAdop[1]);
-            tableMascotas.addCell(animalAdop[2]);
+        PdfPTable tablePets = new PdfPTable(new float[] { 2, 2, 2 });
+        tablePets.addCell(new PdfPCell(new Phrase("Nombre", FontFactory.getFont("arial",12, Font.BOLD))));
+        tablePets.addCell(new PdfPCell(new Phrase("Esterilidad", FontFactory.getFont("arial",12, Font.BOLD))));
+        tablePets.addCell(new PdfPCell(new Phrase("Disponibilidad", FontFactory.getFont("arial",12, Font.BOLD))));
+        ArrayList<AdoptionAnimal> inventoryAdoptionAnimal = Zoologico.inventoryAdoptionAnimal;
+        for (AdoptionAnimal animal : inventoryAdoptionAnimal) {
+            tablePets.addCell(new PdfPCell(new Phrase(animal.getName())));
+            tablePets.addCell(new PdfPCell(new Phrase(animal.isSterilized() ? "Esterilizado" : "No esterilizado")));
+            tablePets.addCell(new PdfPCell(new Phrase(animal.isAvailable() ? "Disponible" : "No disponible")));
         }
-        document.add(tableMascotas);
+        document.add(tablePets);
+
         document.close();
     }
 
