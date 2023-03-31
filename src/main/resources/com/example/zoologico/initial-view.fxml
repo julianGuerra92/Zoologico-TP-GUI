@@ -10,25 +10,35 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.InitialController">
+<BorderPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.InitialController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Menú">
                     <items>
-                        <MenuItem fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Zoológico" />
-                        <MenuItem fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Adopción" />
-                        <MenuItem fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Ventas" />
-                        <MenuItem fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Clientes" />
-                        <MenuItem fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Empleados" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="closeSession" mnemonicParsing="false" onAction="#onChangeWindow" text="Cerrar Sesión" />
-                        <MenuItem mnemonicParsing="false" onAction="#exitAplication" text="Close" />
+                        <MenuItem fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Módulo Animales Zoológico"/>
+                        <MenuItem fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Módulo Animales Adopción"/>
+                        <MenuItem fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Módulo Ventas"/>
+                        <MenuItem fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Registro de Clientes"/>
+                        <MenuItem fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Registro de Empleados"/>
+                        <MenuItem fx:id="mainPanel" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Panel Principal"/>
+                        <SeparatorMenuItem mnemonicParsing="false"/>
+                        <MenuItem fx:id="closeSession" mnemonicParsing="false" onAction="#onChangeWindow"
+                                  text="Cerrar Sesión"/>
+                        <MenuItem mnemonicParsing="false" onAction="#exitAplication" text="Close"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="About">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="About"/>
                     </items>
                 </Menu>
             </menus>
@@ -39,19 +49,26 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="625.0" prefWidth="509.0">
                     <children>
-                        <Label styleClass="title" text="Panel Principal" />
-                        <Label styleClass="title" text=" de Administración" />
+                        <Label styleClass="title" text="Panel Principal"/>
+                        <Label styleClass="title" text=" de Administración"/>
                     </children>
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="625.0" prefWidth="481.0" spacing="30.0">
                     <children>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="346.0" styleClass="subtitle" text="Menú de Opciones" textAlignment="CENTER" />
-                        <Button fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Zoológico" />
-                        <Button fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Adopción" />
-                        <Button fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Módulo de Ventas" />
-                        <Button fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Registro de Clientes" />
-                        <Button fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0" prefWidth="300.0" text="Registro de Empleados" />
-                  <Button fx:id="printReport" mnemonicParsing="false" onAction="#printReport" prefHeight="50.0" prefWidth="300.0" text="Imprimir Informe General" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="346.0" styleClass="subtitle"
+                               text="Menú de Opciones" textAlignment="CENTER"/>
+                        <Button fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0"
+                                prefWidth="300.0" text="Módulo Animales Zoológico"/>
+                        <Button fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow"
+                                prefHeight="50.0" prefWidth="300.0" text="Módulo Animales Adopción"/>
+                        <Button fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" prefHeight="50.0"
+                                prefWidth="300.0" text="Módulo de Ventas"/>
+                        <Button fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow"
+                                prefHeight="50.0" prefWidth="300.0" text="Registro de Clientes"/>
+                        <Button fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow"
+                                prefHeight="50.0" prefWidth="300.0" text="Registro de Empleados"/>
+                        <Button fx:id="printReport" mnemonicParsing="false" onAction="#printReport" prefHeight="50.0"
+                                prefWidth="300.0" text="Imprimir Informe General"/>
                     </children>
                 </VBox>
             </children>

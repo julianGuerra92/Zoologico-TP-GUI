@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SalesController {
-
     @FXML
     private BorderPane scenePane;
 
@@ -28,6 +27,7 @@ public class SalesController {
 
     public void onChangeWindow(ActionEvent actionEvent) throws IOException {
         String windowId = actionEvent.getSource().toString();
+        if (windowId.contains("mainPanel")) showWindow("/com/example/zoologico/initial-view.fxml");
         if (windowId.contains("animalZoo")) showWindow("/com/example/zoologico/animal-zoo-view.fxml");
         if (windowId.contains("animalAdoption")) showWindow("/com/example/zoologico/animal-adoption-view.fxml");
         if (windowId.contains("sales")) showWindow("/com/example/zoologico/sales-view.fxml");

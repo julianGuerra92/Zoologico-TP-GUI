@@ -85,13 +85,18 @@ public class AnimalZooController implements Initializable {
         fieldWCompatibility.setValue("");
     }
 
-    public void cleanFieldsDomesticAnimal(){
+    public void cleanFieldsDomesticAnimal() {
         fieldDID.setText("");
         fieldDScientificName.setText("");
         fieldDCommonName.setText("");
         datePickerD.setValue(null);
         fieldDomesticUse.setText("");
         fieldDCompatibility.setValue("");
+    }
+
+    public void showConfirmationMessage(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
+        alert.showAndWait();
     }
 
     public void showWindow(String path) throws IOException {
@@ -107,6 +112,7 @@ public class AnimalZooController implements Initializable {
 
     public void onChangeWindow(ActionEvent actionEvent) throws IOException {
         String windowId = actionEvent.getSource().toString();
+        if (windowId.contains("mainPanel")) showWindow("/com/example/zoologico/initial-view.fxml");
         if (windowId.contains("animalZoo")) showWindow("/com/example/zoologico/animal-zoo-view.fxml");
         if (windowId.contains("animalAdoption")) showWindow("/com/example/zoologico/animal-adoption-view.fxml");
         if (windowId.contains("sales")) showWindow("/com/example/zoologico/sales-view.fxml");
@@ -135,6 +141,7 @@ public class AnimalZooController implements Initializable {
         wildAnimals.add(animal);
         wildAnimalTable.setItems(wildAnimals);
         cleanFieldsWildAnimal();
+        showConfirmationMessage("Registro Guardado de Manera Exitosa!");
     }
 
     public void saveDomesticAnimal() {
@@ -151,6 +158,7 @@ public class AnimalZooController implements Initializable {
         domesticAnimals.add(animal);
         domesticAnimalTable.setItems(domesticAnimals);
         cleanFieldsDomesticAnimal();
+        showConfirmationMessage("Registro Guardado de Manera Exitosa!");
     }
 
 }

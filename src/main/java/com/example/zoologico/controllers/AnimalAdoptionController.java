@@ -62,7 +62,7 @@ public class AnimalAdoptionController implements Initializable {
         adoptionAnimalTable.getItems().addAll(inventoryAdoptionAnimal);
     }
 
-    public void cleanFields(){
+    public void cleanFields() {
         fieldID.setText("");
         fieldScientificName.setText("");
         fieldCommonName.setText("");
@@ -94,6 +94,7 @@ public class AnimalAdoptionController implements Initializable {
 
     public void onChangeWindow(ActionEvent actionEvent) throws IOException {
         String windowId = actionEvent.getSource().toString();
+        if (windowId.contains("mainPanel")) showWindow("/com/example/zoologico/initial-view.fxml");
         if (windowId.contains("animalZoo")) showWindow("/com/example/zoologico/animal-zoo-view.fxml");
         if (windowId.contains("animalAdoption")) showWindow("/com/example/zoologico/animal-adoption-view.fxml");
         if (windowId.contains("sales")) showWindow("/com/example/zoologico/sales-view.fxml");
@@ -107,12 +108,18 @@ public class AnimalAdoptionController implements Initializable {
         stage.close();
     }
 
+    public void showConfirmationMessage(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
+        alert.showAndWait();
+    }
+
     @FXML
     public void saveChange() {
         clickedAnimal.setSterilized((Boolean) fieldSterilized.getValue());
         clickedAnimal.setAvailable((Boolean) fieldAvailable.getValue());
         clickedAnimal.setAdopted((Boolean) fieldAdopted.getValue());
         adoptionAnimalTable.refresh();
+        showConfirmationMessage("Cambios Realizados de Manera Exitosa!");
     }
 
     public void saveAdoptionAnimal(ActionEvent actionEvent) {
@@ -130,5 +137,7 @@ public class AnimalAdoptionController implements Initializable {
         adoptionAnimals.add(animal);
         adoptionAnimalTable.setItems(adoptionAnimals);
         cleanFields();
+        showConfirmationMessage("Registro Guardado de Manera Exitosa!");
     }
+
 }
