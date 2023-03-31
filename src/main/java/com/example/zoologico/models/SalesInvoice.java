@@ -1,5 +1,8 @@
 package com.example.zoologico.models;
 
+import com.example.zoologico.enums.CustomerCategory;
+import com.example.zoologico.enums.PlanCategory;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -7,17 +10,22 @@ public class SalesInvoice {
     private String id;
     private LocalDate date;
     private Customer customer;
-    private ArrayList<Plans> plans;
+    private Plans plan;
+    private int quantity;
     private float totalValueSale;
+    private float totalDiscount = 0f;
 
     public SalesInvoice() {
     }
 
-    public SalesInvoice(String id, LocalDate date, Customer customer, ArrayList<Plans> plans) {
+    public SalesInvoice(String id, LocalDate date, Customer customer, Plans plan, int quantity) {
         this.id = id;
         this.date = date;
         this.customer = customer;
-        this.plans = plans;
+        this.plan = plan;
+        this.quantity = quantity;
+        calculateTotal();
+        calculateDiscount();
     }
 
     public String getId() {
@@ -44,21 +52,40 @@ public class SalesInvoice {
         this.customer = customer;
     }
 
-    public ArrayList<Plans> getPlans() {
-        return plans;
+    public Plans getPlan() {
+        return plan;
     }
 
-    public void setPlans(ArrayList<Plans> plans) {
-        this.plans = plans;
+    public void setPlan(Plans plan) {
+        this.plan = plan;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public float getTotalValueSale() {
         return totalValueSale;
     }
 
-    public void calculateTotal(){
-        for(Plans plan : plans){
-            totalValueSale += (plan.getPrice() * plan.getQuantity());
+    public float getTotalDiscount() {
+        return totalDiscount;
+    }
+
+    public void calculateTotal() {
+        totalValueSale = plan.getPrice() * quantity;
+    }
+
+    public void calculateDiscount() {
+        if (customer.getCategory().equals(CustomerCategory.ABONADO) && !plan.getCategory().equals(PlanCategory.ABONO_MENSUAL)) {
+            totalDiscount = totalValueSale * 0.30f;
+        }
+        if (customer.getCategory().equals(CustomerCategory.FRECUENTE)) {
+            totalDiscount = totalValueSale * 0.20f;
         }
     }
 

@@ -75,6 +75,25 @@ public class AnimalZooController implements Initializable {
         domesticAnimalTable.getItems().addAll(inventoryDomesticAnimal);
     }
 
+    public void cleanFieldsWildAnimal() {
+        fieldWID.setText("");
+        fieldWScientificName.setText("");
+        fieldWCommonName.setText("");
+        datePickerW.setValue(null);
+        fieldWDangerLevel.setValue("");
+        fieldWNaturalHabitat.setText("");
+        fieldWCompatibility.setValue("");
+    }
+
+    public void cleanFieldsDomesticAnimal(){
+        fieldDID.setText("");
+        fieldDScientificName.setText("");
+        fieldDCommonName.setText("");
+        datePickerD.setValue(null);
+        fieldDomesticUse.setText("");
+        fieldDCompatibility.setValue("");
+    }
+
     public void showWindow(String path) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(path));
         Scene scene = new Scene(root);
@@ -114,8 +133,8 @@ public class AnimalZooController implements Initializable {
         inventoryWildAnimal.add(animal);
         wildAnimals = wildAnimalTable.getItems();
         wildAnimals.add(animal);
-        cleanFields();
         wildAnimalTable.setItems(wildAnimals);
+        cleanFieldsWildAnimal();
     }
 
     public void saveDomesticAnimal() {
@@ -131,16 +150,7 @@ public class AnimalZooController implements Initializable {
         domesticAnimals = domesticAnimalTable.getItems();
         domesticAnimals.add(animal);
         domesticAnimalTable.setItems(domesticAnimals);
-    }
-
-    public void cleanFields() {
-        fieldWID.setText("");
-        fieldWScientificName.setText("");
-        fieldWCommonName.setText("");
-        datePickerW.setValue(null);
-        fieldWDangerLevel.setValue("");
-        fieldWNaturalHabitat.setText("");
-        fieldWCompatibility.setValue("");
+        cleanFieldsDomesticAnimal();
     }
 
 }

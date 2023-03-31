@@ -1,6 +1,5 @@
 package com.example.zoologico;
 
-import com.example.zoologico.controllers.PdfController;
 import com.example.zoologico.data.SeedData;
 import com.example.zoologico.models.*;
 import com.itextpdf.text.DocumentException;

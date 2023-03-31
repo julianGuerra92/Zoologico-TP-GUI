@@ -2,6 +2,7 @@ package com.example.zoologico.controllers;
 
 import com.example.zoologico.models.AdoptionAnimal;
 import com.example.zoologico.models.DomesticAnimal;
+import com.example.zoologico.models.WildAnimal;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -34,11 +32,16 @@ public class AnimalAdoptionController implements Initializable {
     @FXML
     private TableColumn<AdoptionAnimal, Boolean> colSterilized, colAvailable, colAdopted;
     @FXML
-    private ChoiceBox fieldSterilized, fieldAvailable, fieldAdopted;
+    private ChoiceBox fieldSterilized, fieldAvailable, fieldAdopted, fieldSterilizedForm, fieldAvailableForm;
     @FXML
-    private Label fieldName;
+    private Label labelName;
+    @FXML
+    private TextField fieldID, fieldScientificName, fieldCommonName, fieldName;
+    @FXML
+    private DatePicker datePicker;
     private Boolean[] choiceBoxItem = {true, false};
     private AdoptionAnimal clickedAnimal;
+    private ObservableList<AdoptionAnimal> adoptionAnimals;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,11 +53,23 @@ public class AnimalAdoptionController implements Initializable {
         fieldSterilized.getItems().addAll(choiceBoxItem);
         fieldAvailable.getItems().addAll(choiceBoxItem);
         fieldAdopted.getItems().addAll(choiceBoxItem);
+        fieldSterilizedForm.getItems().addAll(choiceBoxItem);
+        fieldAvailableForm.getItems().addAll(choiceBoxItem);
         setupTable();
     }
 
     public void setupTable() {
         adoptionAnimalTable.getItems().addAll(inventoryAdoptionAnimal);
+    }
+
+    public void cleanFields(){
+        fieldID.setText("");
+        fieldScientificName.setText("");
+        fieldCommonName.setText("");
+        datePicker.setValue(null);
+        fieldName.setText("");
+        fieldSterilizedForm.setValue("");
+        fieldAvailableForm.setValue("");
     }
 
     @FXML
@@ -63,15 +78,7 @@ public class AnimalAdoptionController implements Initializable {
         fieldSterilized.setValue(clickedAnimal.isSterilized());
         fieldAvailable.setValue(clickedAnimal.isAvailable());
         fieldAdopted.setValue(clickedAnimal.isAdopted());
-        fieldName.setText(clickedAnimal.getName());
-    }
-
-    @FXML
-    public void saveChange(){
-        clickedAnimal.setSterilized((Boolean) fieldSterilized.getValue());
-        clickedAnimal.setAvailable((Boolean) fieldAvailable.getValue());
-        clickedAnimal.setAdopted((Boolean) fieldAdopted.getValue());
-        adoptionAnimalTable.refresh();
+        labelName.setText(clickedAnimal.getName());
     }
 
     public void showWindow(String path) throws IOException {
@@ -100,4 +107,28 @@ public class AnimalAdoptionController implements Initializable {
         stage.close();
     }
 
+    @FXML
+    public void saveChange() {
+        clickedAnimal.setSterilized((Boolean) fieldSterilized.getValue());
+        clickedAnimal.setAvailable((Boolean) fieldAvailable.getValue());
+        clickedAnimal.setAdopted((Boolean) fieldAdopted.getValue());
+        adoptionAnimalTable.refresh();
+    }
+
+    public void saveAdoptionAnimal(ActionEvent actionEvent) {
+        AdoptionAnimal animal = new AdoptionAnimal(
+                fieldID.getText(),
+                fieldScientificName.getText(),
+                fieldCommonName.getText(),
+                datePicker.getValue(),
+                fieldName.getText(),
+                (Boolean) fieldSterilizedForm.getValue(),
+                (Boolean) fieldAvailableForm.getValue()
+        );
+        inventoryAdoptionAnimal.add(animal);
+        adoptionAnimals = adoptionAnimalTable.getItems();
+        adoptionAnimals.add(animal);
+        adoptionAnimalTable.setItems(adoptionAnimals);
+        cleanFields();
+    }
 }

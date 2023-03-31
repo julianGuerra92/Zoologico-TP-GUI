@@ -34,7 +34,7 @@ public class SalesDepartment {
     }
 
     public static String salePlans(String id, LocalDate date, Customer customer, ArrayList<Plans> plans){
-        SalesInvoice newInvoice = new SalesInvoice(id, date, customer, plans);
+        SalesInvoice newInvoice = new SalesInvoice(); //TODO: Revisar este método
         newInvoice.calculateTotal();
         Zoologico.invoiceList.add(newInvoice);
         return "El registro de venta con id " + id + "ha sido generado de manera exitosa!";
