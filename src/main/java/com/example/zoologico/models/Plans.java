@@ -5,7 +5,7 @@ import com.example.zoologico.enums.PlanCategory;
 /**
  * @author Julian A. Rodríguez G. - Oscar Albeiro Blandón
  * @version 0.0.1
- * Esta clase representa los planes que se crearan para el zoológico y extarán disponibles para la venta
+ * Esta clase representa los planes que se crearan para el zoológico y estarán disponibles para la venta
  * a los diferentes clientes. Esta usa la enumeración PlanCategory.
  */
 public class Plans {
