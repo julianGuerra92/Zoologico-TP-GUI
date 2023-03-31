@@ -18,10 +18,10 @@ public class PdfFooter extends PdfPageEventHelper {
         Phrase footerPharse2 = new Phrase(footerText2);
         ColumnText.showTextAligned(pcb, Element.ALIGN_CENTER, footerPharse,
                 (document.right() - document.left()) / 2 + document.leftMargin(),
-                document.bottom() - 10, 0);
+                document.bottom() - 0, 0);
         ColumnText.showTextAligned(pcb, Element.ALIGN_CENTER, footerPharse1,
                 (document.right() - document.left()) / 2 + document.leftMargin(),
-                document.bottom() - 20, 0);
+                document.bottom() - 15, 0);
         ColumnText.showTextAligned(pcb, Element.ALIGN_CENTER, footerPharse2,
                 (document.right() - document.left()) / 2 + document.leftMargin(),
                 document.bottom() - 30, 0);
