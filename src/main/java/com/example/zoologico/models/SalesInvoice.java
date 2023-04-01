@@ -12,20 +12,28 @@ public class SalesInvoice {
     private Customer customer;
     private Plans plan;
     private int quantity;
-    private float totalValueSale;
-    private float totalDiscount = 0f;
+    private float totalValueSale, totalDiscount, totalValueWithDiscount;
 
     public SalesInvoice() {
     }
 
-    public SalesInvoice(String id, LocalDate date, Customer customer, Plans plan, int quantity) {
+    public SalesInvoice(
+            String id,
+            LocalDate date,
+            Customer customer,
+            Plans plan,
+            int quantity,
+            float totalValueSale,
+            float totalDiscount
+    ) {
         this.id = id;
         this.date = date;
         this.customer = customer;
         this.plan = plan;
         this.quantity = quantity;
-        calculateTotal();
-        calculateDiscount();
+        this.totalValueSale = totalValueSale;
+        this.totalDiscount = totalDiscount;
+        totalValueWithDiscount = totalValueSale - totalDiscount;
     }
 
     public String getId() {
@@ -76,17 +84,19 @@ public class SalesInvoice {
         return totalDiscount;
     }
 
-    public void calculateTotal() {
-        totalValueSale = plan.getPrice() * quantity;
+    public void setTotalValueSale(float totalValueSale) {
+        this.totalValueSale = totalValueSale;
     }
 
-    public void calculateDiscount() {
-        if (customer.getCategory().equals(CustomerCategory.ABONADO) && !plan.getCategory().equals(PlanCategory.ABONO_MENSUAL)) {
-            totalDiscount = totalValueSale * 0.30f;
-        }
-        if (customer.getCategory().equals(CustomerCategory.FRECUENTE)) {
-            totalDiscount = totalValueSale * 0.20f;
-        }
+    public void setTotalDiscount(float totalDiscount) {
+        this.totalDiscount = totalDiscount;
     }
 
+    public float getTotalValueWithDiscount() {
+        return totalValueWithDiscount;
+    }
+
+    public void setTotalValueWithDiscount(float totalValueWithDiscount) {
+        this.totalValueWithDiscount = totalValueWithDiscount;
+    }
 }

@@ -1,40 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.BorderPane?>
-
-
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
 <BorderPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.zoologico.controllers.RegisterClientsController">
    <top>
      <MenuBar BorderPane.alignment="CENTER">
        <menus>
          <Menu mnemonicParsing="false" text="Menú">
            <items>
-             <MenuItem fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Módulo Animales Zoológico"/>
-             <MenuItem fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Módulo Animales Adopción"/>
-             <MenuItem fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Módulo Ventas"/>
-             <MenuItem fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Registro de Clientes"/>
-             <MenuItem fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Registro de Empleados"/>
-             <SeparatorMenuItem mnemonicParsing="false"/>
-             <MenuItem fx:id="closeSession" mnemonicParsing="false" onAction="#onChangeWindow"
-                       text="Cerrar Sesión"/>
-             <MenuItem mnemonicParsing="false" onAction="#exitAplication" text="Close"/>
+             <MenuItem fx:id="animalZoo" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Zoológico" />
+             <MenuItem fx:id="animalAdoption" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Animales Adopción" />
+             <MenuItem fx:id="sales" mnemonicParsing="false" onAction="#onChangeWindow" text="Módulo Ventas" />
+             <MenuItem fx:id="registerClients" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Clientes" />
+             <MenuItem fx:id="registerEmployee" mnemonicParsing="false" onAction="#onChangeWindow" text="Registro de Empleados" />
+             <SeparatorMenuItem mnemonicParsing="false" />
+             <MenuItem fx:id="closeSession" mnemonicParsing="false" onAction="#onChangeWindow" text="Cerrar Sesión" />
+             <MenuItem mnemonicParsing="false" onAction="#exitAplication" text="Close" />
            </items>
          </Menu>
          <Menu mnemonicParsing="false" text="About">
            <items>
-             <MenuItem mnemonicParsing="false" text="About"/>
+             <MenuItem mnemonicParsing="false" text="About" />
            </items>
          </Menu>
        </menus>
      </MenuBar>
    </top>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="subtitle" text="Módulo Registro de Clientes">
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="secondaryTitle" text="Formulario de Ingreso de Nuevos Clientes">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="335.0" prefWidth="1000.0" spacing="10.0">
+               <children>
+                  <VBox alignment="TOP_RIGHT" prefHeight="281.0" prefWidth="353.0" spacing="50.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="437.0" styleClass="secondarySubtitle" text="Nombre Completo:">
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="437.0" styleClass="secondarySubtitle" text="Número de Identificación:" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="437.0" styleClass="secondarySubtitle" text="Fecha de Nacimiento:" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="437.0" styleClass="secondarySubtitle" text="Categoría:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="281.0" prefWidth="429.0" spacing="35.0">
+                     <children>
+                        <TextField prefHeight="33.0" prefWidth="429.0" />
+                        <TextField prefHeight="33.0" prefWidth="429.0" />
+                        <DatePicker prefHeight="34.0" prefWidth="429.0" />
+                        <TextField prefHeight="33.0" prefWidth="429.0" text="OCASIONAL" />
+                     </children>
+                     <padding>
+                        <Insets top="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="184.0" text="Guardar Registro">
+               <VBox.margin>
+                  <Insets left="600.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>

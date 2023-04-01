@@ -5,9 +5,19 @@ import com.example.zoologico.enums.CustomerCategory;
 import com.example.zoologico.enums.PlanCategory;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import static com.example.zoologico.Zoologico.invoiceList;
 
 public class SalesDepartment {
+
+    public static Map<String, Float> discounts = new HashMap<>() {{
+        put("OCASIONAL", 0.0f);
+        put("FRECUENTE", 0.20f);
+        put("ABONADO", 0.30f);
+    }};
 
     public static String registerNewCustomer(
             String fullName,
@@ -33,11 +43,18 @@ public class SalesDepartment {
         return "El plan " + name + " ha sido creado de manera satisfactoria!";
     }
 
-    public static String salePlans(String id, LocalDate date, Customer customer, ArrayList<Plans> plans){
-        SalesInvoice newInvoice = new SalesInvoice(); //TODO: Revisar este método
-        newInvoice.calculateTotal();
-        Zoologico.invoiceList.add(newInvoice);
-        return "El registro de venta con id " + id + "ha sido generado de manera exitosa!";
+    public static String salePlan(
+            Customer customer,
+            Plans plan,
+            int quantity,
+            float totalValueSale,
+            float totalDiscount
+    ) {
+        String id = String.valueOf(invoiceList.size() + 1);
+        LocalDate date = LocalDate.now();
+        SalesInvoice newInvoice = new SalesInvoice(id, date, customer, plan, quantity, totalValueSale, totalDiscount);
+        invoiceList.add(newInvoice);
+        return "La Factura con ID " + id + " se ha Generado Correctamente!";
     }
 
 }

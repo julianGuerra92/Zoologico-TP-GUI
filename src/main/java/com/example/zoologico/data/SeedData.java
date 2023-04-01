@@ -70,14 +70,14 @@ public class SeedData {
     }
 
     public  void addSalesInvoice(){
-        SalesInvoice invoice1 = new SalesInvoice("1", LocalDate.of(2023, 3, 20), customerList.get(0), plansList.get(0), 3);
-        SalesInvoice invoice2 = new SalesInvoice("2", LocalDate.of(2023, 3, 20), customerList.get(0), plansList.get(3), 2);
-        SalesInvoice invoice3 = new SalesInvoice("3", LocalDate.of(2023, 3, 20), customerList.get(1), plansList.get(2), 2);
-        SalesInvoice invoice4 = new SalesInvoice("4", LocalDate.of(2023, 3, 20), customerList.get(1), plansList.get(1), 5);
-        SalesInvoice invoice5 = new SalesInvoice("5", LocalDate.of(2023, 3, 28), customerList.get(0), plansList.get(4), 3);
-        SalesInvoice invoice6 = new SalesInvoice("6", LocalDate.of(2023, 3, 28), customerList.get(0), plansList.get(5), 2);
-        SalesInvoice invoice7 = new SalesInvoice("7", LocalDate.of(2023, 3, 28), customerList.get(1), plansList.get(6), 10);
-        SalesInvoice invoice8 = new SalesInvoice("8", LocalDate.of(2023, 3, 30), customerList.get(2), plansList.get(7), 1);
+        SalesInvoice invoice1 = new SalesInvoice("1", LocalDate.of(2023, 3, 20), customerList.get(0), plansList.get(0), 3, 120000, 24000);
+        SalesInvoice invoice2 = new SalesInvoice("2", LocalDate.of(2023, 3, 20), customerList.get(0), plansList.get(3), 2, 90000, 18000);
+        SalesInvoice invoice3 = new SalesInvoice("3", LocalDate.of(2023, 3, 20), customerList.get(1), plansList.get(2), 2, 150000, 45000);
+        SalesInvoice invoice4 = new SalesInvoice("4", LocalDate.of(2023, 3, 20), customerList.get(1), plansList.get(1), 5, 45000, 0);
+        SalesInvoice invoice5 = new SalesInvoice("5", LocalDate.of(2023, 3, 28), customerList.get(0), plansList.get(4), 3, 95000, 28500);
+        SalesInvoice invoice6 = new SalesInvoice("6", LocalDate.of(2023, 3, 28), customerList.get(0), plansList.get(5), 2, 110000, 0);
+        SalesInvoice invoice7 = new SalesInvoice("7", LocalDate.of(2023, 3, 28), customerList.get(1), plansList.get(6), 10, 250000, 50000);
+        SalesInvoice invoice8 = new SalesInvoice("8", LocalDate.of(2023, 3, 30), customerList.get(2), plansList.get(7), 1, 30000, 0);
         invoiceList.addAll(List.of(new SalesInvoice[]{invoice1, invoice2, invoice3, invoice4, invoice5, invoice6, invoice7, invoice8}));
     }
 

@@ -36,7 +36,3 @@ public class Zoologico extends Application {
         launch();
     }
 }
-
-//TODO: Revisar generación de javadoc
-//TODO: Agregar la Clase Usuario que herede de empleado y tenga los tributos de correo y password
-//TODO: Integrar adecuadamente la funcionalidad para la impresión del documento de ventas.

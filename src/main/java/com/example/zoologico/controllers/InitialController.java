@@ -47,7 +47,7 @@ public class InitialController {
 
     public void printReport(ActionEvent actionEvent) throws DocumentException, IOException {
         PdfController.generatePdf();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Reporte Generado de manera axitosa!");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Informe de Gestión Generado de Manera Exitosa!");
         alert.showAndWait();
     }
 }

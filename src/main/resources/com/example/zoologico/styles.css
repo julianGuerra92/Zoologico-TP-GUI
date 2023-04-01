@@ -40,7 +40,7 @@
     -fx-border-color: #38369A;
     -fx-border-width: 2px;
     -fx-alignment: center;
-    -fx-font-size: 20;
+    -fx-font-size: 18;
 }
 
 .button {
@@ -64,4 +64,15 @@
 
 .choice-box {
     -fx-alignment: center;
+}
+
+#printReport {
+    -fx-border-color: orange;
+    -fx-text-fill: orange;
+}
+
+#printReport:hover {
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3;
 }

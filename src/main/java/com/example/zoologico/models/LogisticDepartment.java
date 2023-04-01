@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 public class LogisticDepartment {
 
-    //TODO: Revisar este método
     public static void zooAdministration() {
 
     }
