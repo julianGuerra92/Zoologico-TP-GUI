@@ -7,7 +7,7 @@ import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class PdfFooter extends PdfPageEventHelper {
-    Phrase footerText = new Phrase("Información OODI ");
+    Phrase footerText = new Phrase("Información ZOODI ");
     Phrase footerText1 = new Phrase("Medellín Antioquia");
     Phrase footerText2 = new Phrase("Correo Electrónico: ZooOsJuaMedAnt@Gmail.com");
 

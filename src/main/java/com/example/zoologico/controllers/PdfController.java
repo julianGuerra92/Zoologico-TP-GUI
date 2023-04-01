@@ -2,82 +2,89 @@ package com.example.zoologico.controllers;
 
 import com.example.zoologico.Zoologico;
 import com.example.zoologico.models.AdoptionAnimal;
+import com.example.zoologico.models.Plans;
+import com.example.zoologico.models.SalesInvoice;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import static com.example.zoologico.Zoologico.invoiceList;
+import static com.example.zoologico.Zoologico.plansList;
+
 public class PdfController {
+
+    private static float valueUnd, quantity, total, discount, totalDiscount, totalWithDiscount;
+    private static Font fontText = FontFactory.getFont("arial", 12, Font.NORMAL);
+    private static Font fontTitle = FontFactory.getFont("arial", 14, Font.BOLD);
+    private static Font fontTitleTable = FontFactory.getFont("arial", 10, Font.BOLD);
+    private static Font fontTextTable = FontFactory.getFont("arial", 10, Font.BOLD);
 
     public static void generatePdf() throws IOException, DocumentException {
 
-        Document document = new Document(PageSize.A4, 50.0f, 50.0f, 50.0f, 50.0f);
+        Document document = new Document(PageSize.A4, 50.0f, 50.0f, 70.0f, 70.0f);
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("soportes/Prueba.pdf"));
-
-        //Pie de Página y Encabezado
         writer.setPageEvent(new PdfFooter());
         writer.setPageEvent(new PdfHeader());
-
         document.open();
 
-        //Agregar parrafo de bienvenida
-        document.add(new Paragraph("\nBienvenidos a todos, agradecemos ampliamente el que nos hallan" +
-                " elegido como su lugar de confianza." +
-                " Es por esta razon que nos esforzamos en brindarles la mejor experiencia a la hora" +
-                " de divertirce y pasar un rato agradable." +
-                "A continuación encontrarán información respecto a nuestro hermoso" +
-                " y acogedor establecimiento." +
-                " Esperamos que lo disfuten y tengan la major de sus experiencias.",
-                FontFactory.getFont("arial", 12, Font.NORMAL)));
+        Paragraph wellcomeParagraph = new Paragraph();
+        wellcomeParagraph.setAlignment(Paragraph.ALIGN_JUSTIFIED);
+        wellcomeParagraph.setFont(fontText);
+        wellcomeParagraph.add("Bienvenidos a todos, agradecemos ampliamente el que nos hayan elegido como su lugar de" +
+                " confianza. Es por esta razón que nos esforzamos en brindarles la mejor experiencia a la" +
+                " hora de divertirse y pasar un rato agradable." + " A continuación encontrarán información " +
+                "respecto a nuestro hermoso y acogedor establecimiento. Esperamos que lo disfuten y tengan " +
+                "la mejor de sus experiencias.");
+        document.add(wellcomeParagraph);
 
-        //Agregar un titulo para el informe de ventas
-        Font fontTitle2 = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
-        Paragraph title2 = new Paragraph("\nInforme de Ventas", fontTitle2);
-        title2.setAlignment(Element.ALIGN_BASELINE);
-        document.add(title2);
+        Paragraph title1 = new Paragraph("\nInforme de Ventas", fontTitle);
+        document.add(title1);
 
-        //Agregar Intro para Informe de ventas
-        document.add(new Paragraph("A continuación podrá observar una descripcion de lo que cada plan ofrece",
-                FontFactory.getFont("arial", 12, Font.NORMAL)));
+        Paragraph salesParagraph = new Paragraph();
+        salesParagraph.setAlignment(Paragraph.ALIGN_JUSTIFIED);
+        salesParagraph.setFont(fontText);
+        salesParagraph.add("A continuación podrá observar el detalle sobre los resultados de la ventas: ");
+        document.add(salesParagraph);
 
         //Tabla con Informe de ventas
-
         PdfPTable table = new PdfPTable(7);
         table.setWidthPercentage(100.0F);
         table.setSpacingAfter(10.0F);
         table.setSpacingBefore(10.0F);
-        PdfPCell cell1 = new PdfPCell(new PdfPCell(new Paragraph("Plan", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell2 = new PdfPCell(new PdfPCell(new Paragraph("Valor", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell3 = new PdfPCell(new PdfPCell(new Paragraph("Cantidad", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell4 = new PdfPCell(new PdfPCell(new Paragraph("Valor Total", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell5 = new PdfPCell(new PdfPCell(new Paragraph("Porcentaje Descuento", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell6 = new PdfPCell(new PdfPCell(new Paragraph("Total Descuento", FontFactory.getFont("arial", 12, Font.BOLD))));
-        PdfPCell cell7 = new PdfPCell(new PdfPCell(new Paragraph("Total", FontFactory.getFont("arial", 12, Font.BOLD))));
-        table.addCell(cell1);
-        table.addCell(cell2);
-        table.addCell(cell3);
-        table.addCell(cell4);
-        table.addCell(cell5);
-        table.addCell(cell6);
-        table.addCell(cell7);
-        List<String[]> planes = obtenerPlanes();
-        Iterator var7 = planes.iterator();
-
-        while (var7.hasNext()) {
-            String[] plan = (String[]) var7.next();
-            table.addCell(plan[0]);
-            table.addCell(plan[1]);
-            table.addCell(plan[2]);
-            table.addCell(plan[3]);
-            table.addCell(plan[4]);
-            table.addCell(plan[5]);
-            table.addCell(plan[6]);
+        table.addCell(new PdfPCell(new Paragraph("Plan", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Valor", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Cantidad", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Total Sin Descuento", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Porcentaje Descuento", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Total Descuento", fontTitleTable)));
+        table.addCell(new PdfPCell(new Paragraph("Total Con Descuento", fontTitleTable)));
+        for(Plans plan : plansList ){
+            for(SalesInvoice invoice : invoiceList){
+                if(plan.getName().equals(invoice.getPlan().getName())){
+                    valueUnd = invoice.getPlan().getPrice();
+                    quantity += invoice.getQuantity();
+                    total += invoice.getTotalValueSale();
+                    totalDiscount += invoice.getTotalDiscount();
+                    discount = totalDiscount / total;
+                    totalWithDiscount += invoice.getTotalValueWithDiscount();
+                }
+            }
+            table.addCell(new PdfPCell(new Paragraph(plan.getName(), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(valueUnd), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(quantity), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(total), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(discount), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(totalDiscount), fontTextTable)));
+            table.addCell(new PdfPCell(new Paragraph(String.valueOf(totalDiscount), fontTextTable)));
         }
         document.add(table);
 
@@ -101,7 +108,7 @@ public class PdfController {
         List<String[]> totales = obtenerTotales();
         Iterator i = totales.iterator();
 
-        while (i.hasNext()){
+        while (i.hasNext()) {
             String[] total = (String[]) i.next();
             tableT.addCell(total[0]);
             tableT.addCell(total[1]);
@@ -125,8 +132,8 @@ public class PdfController {
         List<String[]> dattaAnimal = obtenerDatosAnimAdop();
         Iterator iAnimalDispoAdop = dattaAnimal.iterator();
 
-        while (iAnimalDispoAdop.hasNext()){
-            String[] dato = (String[])iAnimalDispoAdop.next();
+        while (iAnimalDispoAdop.hasNext()) {
+            String[] dato = (String[]) iAnimalDispoAdop.next();
             tableDispoMas.addCell(dato[0]);
             tableDispoMas.addCell(dato[1]);
             tableDispoMas.addCell(dato[2]);
@@ -139,10 +146,10 @@ public class PdfController {
                 " que se encuentran en adopción", FontFactory.getFont("arial", 12, Font.NORMAL)));
         document.add(new Paragraph("\n\n"));
 
-        PdfPTable tablePets = new PdfPTable(new float[] { 2, 2, 2 });
-        tablePets.addCell(new PdfPCell(new Phrase("Nombre", FontFactory.getFont("arial",12, Font.BOLD))));
-        tablePets.addCell(new PdfPCell(new Phrase("Esterilidad", FontFactory.getFont("arial",12, Font.BOLD))));
-        tablePets.addCell(new PdfPCell(new Phrase("Disponibilidad", FontFactory.getFont("arial",12, Font.BOLD))));
+        PdfPTable tablePets = new PdfPTable(new float[]{2, 2, 2});
+        tablePets.addCell(new PdfPCell(new Phrase("Nombre", FontFactory.getFont("arial", 12, Font.BOLD))));
+        tablePets.addCell(new PdfPCell(new Phrase("Esterilidad", FontFactory.getFont("arial", 12, Font.BOLD))));
+        tablePets.addCell(new PdfPCell(new Phrase("Disponibilidad", FontFactory.getFont("arial", 12, Font.BOLD))));
         ArrayList<AdoptionAnimal> inventoryAdoptionAnimal = Zoologico.inventoryAdoptionAnimal;
         for (AdoptionAnimal animal : inventoryAdoptionAnimal) {
             tablePets.addCell(new PdfPCell(new Phrase(animal.getName())));
@@ -177,13 +184,13 @@ public class PdfController {
         return totales;
     }
 
-    public static List<String[]> obtenerDatosAnimAdop(){
+    public static List<String[]> obtenerDatosAnimAdop() {
         List<String[]> dattaAnimal = new ArrayList<>();
         dattaAnimal.add(new String[]{"175", "62", "35"});
         return dattaAnimal;
     }
 
-    public static List<String[]> obtenerInfoAnimalesAdop(){
+    public static List<String[]> obtenerInfoAnimalesAdop() {
         List<String[]> infoAnimalAdop = new ArrayList<>();
         infoAnimalAdop.add(new String[]{"Perro", "Compañía", "12"});
         infoAnimalAdop.add(new String[]{"Gato", "Compañía", "5"});

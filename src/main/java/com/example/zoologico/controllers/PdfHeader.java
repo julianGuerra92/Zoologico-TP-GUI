@@ -6,10 +6,10 @@ import com.itextpdf.text.pdf.*;
 import java.io.IOException;
 
 public class PdfHeader extends PdfPageEventHelper {
-    Phrase headerText = new Phrase("ZOOOSJUA", new Font(Font.FontFamily.HELVETICA,14,Font.BOLD));
+    Phrase headerText = new Phrase("ZOODI", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
     Phrase headerText1 = new Phrase("Diversión y encanto a tu servicio");
     Phrase headerText2 = new Phrase("Contactos: 3125486899 - 3014578965");
-    Phrase headerText3 = new Phrase("Dirección: Crra5 #567-129");
+    Phrase headerText3 = new Phrase("Dirección: Carrera 5 # 567-129");
 
     public void onEndPage(PdfWriter writer, Document document) {
         PdfContentByte pcb = writer.getDirectContent();
